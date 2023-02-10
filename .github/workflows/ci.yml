@@ -23,10 +23,10 @@ jobs:
     - name: Install dotnet-combine
       run: dotnet tool install -g dotnet-combine
 
-    - name: Build
+    - name: Build combined Program.cs
       working-directory: ./TopLevelChallenge
       run: dotnet combine single-file . --output ../TopLevelChallenge.Generated/Program.g.cs --overwrite --format
 
-    - name: Build
+    - name: Run code from both top level statements
       working-directory: ./TopLevelChallenge.Generated
       run: dotnet run -c Release
