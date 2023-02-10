@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -22,4 +22,8 @@ jobs:
 
     - name: Build
       working-directory: ./TopLevelChallenge
+      run:  dotnet combine single-file . --output ..\TopLevelChallenge.Generated\Program.g.cs --overwrite --format
+
+    - name: Build
+      working-directory: ./TopLevelChallenge.Generated
       run: dotnet run -c Release
