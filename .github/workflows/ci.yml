@@ -21,7 +21,7 @@ jobs:
         dotnet-version: 7.0.x
 
     - name: Install dotnet-combine
-      run: dotnet install -g dotnet-combine
+      run: dotnet tool install -g dotnet-combine
 
     - name: Build
       working-directory: ./TopLevelChallenge
